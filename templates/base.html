@@ -1,0 +1,24 @@
+<!doctype html><html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Bot sayti{% endblock %}</title>
+<style>
+:root{--bg:#f6f7fb;--c:#fff;--t:#1c2030;--m:#667;--a:#2a7de1;--b:#e3e6ee}
+@media(prefers-color-scheme:dark){:root{--bg:#12141c;--c:#1c1f2b;--t:#eef;--m:#99a;--b:#2b2f40}}
+*{box-sizing:border-box}body{margin:0;font:16px system-ui,sans-serif;background:var(--bg);color:var(--t)}
+header{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:14px 20px;background:var(--c);border-bottom:1px solid var(--b)}
+header a{color:var(--t);text-decoration:none}header .brand{font-weight:700;margin-right:auto}
+main{max-width:820px;margin:24px auto;padding:0 16px}
+.card{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:18px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+input,select{width:100%;padding:11px;border:1px solid var(--b);border-radius:8px;background:var(--bg);color:var(--t);margin:6px 0 12px;font:inherit}
+button,.btn{display:inline-block;padding:11px 18px;border:0;border-radius:8px;background:var(--a);color:#fff;font:inherit;cursor:pointer;text-decoration:none}
+.err{color:#d33}.msg{background:var(--c);border:1px solid var(--a);padding:10px;border-radius:8px;margin-bottom:12px}
+.big{font-size:26px;font-weight:700}.muted{color:var(--m)}
+</style></head><body>
+<header><a class="brand" href="/">🎬 Bot sayti</a>
+<a href="{% url 'premium' %}">Premium</a><a href="{% url 'services' %}">Xizmatlar</a>
+<a href="{{ bot_link }}">Bot</a>
+{% if user.is_authenticated %}{% if user.is_staff %}<a href="/admin/">Admin</a>{% endif %}
+<a href="{% url 'profile' %}">Profil</a><a href="{% url 'logout' %}">Chiqish</a>
+{% else %}<a class="btn" href="{% url 'login' %}">Kirish</a>{% endif %}</header>
+<main>{% for m in messages %}<div class="msg">{{ m }}</div>{% endfor %}{% block content %}{% endblock %}</main>
+</body></html>

@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}<h2>💎 Premium tariflar</h2>
+<div class="grid">{% for t in tariffs %}<form method="post" class="card">{% csrf_token %}
+<b>{{ t.name }}</b><div class="big">{{ t.price }} so'm</div><p class="muted">{{ t.days }} kun</p>
+<input type="hidden" name="tariff" value="{{ t.id }}"><button>Sotib olish</button></form>
+{% empty %}<p>Tariflar hali qo'shilmagan.</p>{% endfor %}</div>{% endblock %}

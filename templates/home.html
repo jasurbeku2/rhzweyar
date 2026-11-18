@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+<div class="card"><div class="big">Telegram bot + sayt</div>
+<p class="muted">Premium, Stars, gift, kino va fayl vositalari. Hammasi botda ham, saytda ham.</p>
+<a class="btn" href="{{ bot_link }}">Botni ochish</a></div>
+{% if actions %}<h3>🔥 Aksiyalar</h3>{% for a in actions %}<div class="card"><b>{{ a.title }}</b><p>{{ a.text|linebreaksbr }}</p></div>{% endfor %}{% endif %}
+<div class="grid"><a class="card" href="{% url 'premium' %}">💎 Premium olish</a>
+<a class="card" href="{% url 'services' %}">⭐ Stars / Gift / Raqam</a>
+<a class="card" href="{% url 'profile' %}">🎟 Promokod</a></div>{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}
+<div class="card"><h2>Kodni kiriting</h2><p class="muted">Kod Telegram botga yuborildi (5 daqiqa amal qiladi).</p>
+{% if error %}<p class="err">{{ error }}</p>{% endif %}
+<form method="post">{% csrf_token %}<input name="code" inputmode="numeric" maxlength="6" autofocus required>
+<button>Tasdiqlash</button></form></div>{% endblock %}

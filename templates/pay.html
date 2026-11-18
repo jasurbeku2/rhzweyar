@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+<div class="card"><h2>To'lov</h2>
+<p>Quyidagi kartaga <b>aynan shu summani</b> o'tkazing:</p>
+<div class="big">{{ obj.amount }} so'm</div>
+<p>💳 <b>{{ cfg.card_number }}</b><br>👤 {{ cfg.card_holder }}<br>🏦 {{ cfg.bank }}</p>
+<p class="muted">Summa har kim uchun noyob. Chekni (skrinshot) botga yuboring, admin tasdiqlaydi.</p>
+<p>Holat: <b>{{ obj.get_status_display }}</b></p>
+<a class="btn" href="{{ deep }}">📤 Chekni botga yuborish</a></div>{% endblock %}

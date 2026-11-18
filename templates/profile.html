@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<div class="card"><h2>👤 {{ user.phone }}</h2><p>@{{ user.tg_username }} · 🪙 {{ user.coins }} coin<br>
+💎 {% if user.is_premium %}Premium: {{ user.premium_until|date:"d.m.Y H:i" }} gacha{% else %}Premium yo'q{% endif %}</p></div>
+<div class="card"><b>🎟 Promokod</b><form method="post" action="{% url 'promo' %}">{% csrf_token %}
+<input name="code" placeholder="Promokod" required><button>Faollashtirish</button></form></div>
+<div class="card"><b>To'lovlar</b>{% for p in payments %}<p>#{{ p.id }} {{ p.amount }} so'm — {{ p.get_status_display }}</p>{% empty %}<p class="muted">Yo'q</p>{% endfor %}
+{% for o in orders %}<p>Buyurtma #{{ o.id }} {{ o.get_kind_display }} {{ o.amount }} so'm — {{ o.get_status_display }}</p>{% endfor %}</div>{% endblock %}

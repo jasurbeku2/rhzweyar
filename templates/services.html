@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block content %}<h2>⭐ Xizmatlar</h2>
+<div class="grid">
+<form method="post" class="card">{% csrf_token %}<input type="hidden" name="kind" value="stars"><b>Telegram Stars</b>
+<p class="muted">{{ cfg.stars_price_som }} so'm / 1 star</p><input name="details" placeholder="@username" required>
+<input name="qty" type="number" min="1" value="50"><button>Buyurtma</button></form>
+<form method="post" class="card">{% csrf_token %}<input type="hidden" name="kind" value="gift"><b>Premium gift</b>
+<p class="muted">{{ cfg.gift_price_som }} so'm</p><input name="details" placeholder="Qabul qiluvchi @username" required><button>Buyurtma</button></form>
+<form method="post" class="card">{% csrf_token %}<input type="hidden" name="kind" value="number"><b>Premium raqam</b>
+<p class="muted">{{ cfg.number_price_som }} so'm</p><input name="details" placeholder="Istalgan raqam/izoh" required><button>Buyurtma</button></form>
+<form method="post" class="card">{% csrf_token %}<input type="hidden" name="kind" value="coin"><b>Coin</b>
+<p class="muted">{{ cfg.coin_price_som }} so'm / 1 coin</p><input type="hidden" name="details" value="Coin">
+<input name="qty" type="number" min="1" value="100"><button>Buyurtma</button></form></div>{% endblock %}

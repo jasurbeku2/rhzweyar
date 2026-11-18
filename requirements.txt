@@ -1,0 +1,9 @@
+Django>=5.0,<5.2
+aiogram>=3.7,<4
+gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary
+Pillow
+PyMuPDF
+python-docx

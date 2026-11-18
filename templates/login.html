@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<div class="card"><h2>Kirish / Ro'yxatdan o'tish</h2>
+<p class="muted">Avval botda <b>/start</b> bosib raqamingizni ulashgan bo'lishingiz shart.</p>
+{% if error %}<p class="err">{{ error }}</p>{% endif %}
+{% if need_bot %}<p><a class="btn" href="{{ bot_link }}">Botni ochish</a></p>{% endif %}
+<form method="post">{% csrf_token %}
+<label>Telegram raqam</label><input name="phone" placeholder="+998 90 123 45 67" required>
+<label>Telegram username</label><input name="username" placeholder="@username" required>
+<button>Kod yuborish</button></form></div>{% endblock %}
